@@ -1,44 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>Calculator</title>
 </head>
+
 <body>
-    <main>
-        <div class="calc">
-            <div class="display">
-                <p></p>
-            </div>
-            <!-- Row 1 -->
+    <div class="calc">
+        <div class="display">
+            <p></p>
+        </div>
+        <!-- Row 1 -->
+        <div class="row1">
             <button type="button" class="clear">C</button>
-            <button type="button" class="operator">/</button><br>
-            <!-- Row 2 -->
+            <button type="button" class="operator">/</button>
+        </div>
+        <!-- Row 2 -->
+        <div class="row2">
             <button type="button" class="num">7</button>
             <button type="button" class="num">8</button>
             <button type="button" class="num">9</button>
-            <button type="button" class="operator">*</button><br>
-            <!-- Row 3 -->
+            <button type="button" class="operator">*</button>
+        </div>
+        <!-- Row 3 -->
+        <div class="row3">
             <button type="button" class="num">4</button>
             <button type="button" class="num">5</button>
             <button type="button" class="num">6</button>
-            <button type="button" class="operator">-</button><br>
-            <!-- Row 4 -->
+            <button type="button" class="operator">-</button>
+        </div>
+        <!-- Row 4 -->
+        <div class="row4">
             <button type="button" class="num">1</button>
             <button type="button" class="num">2</button>
             <button type="button" class="num">3</button>
-            <button type="button" class="operator">+</button><br>
-            <!-- Row 5 -->
+            <button type="button" class="operator">+</button>
+        </div>
+        <!-- Row 5 -->
+        <div class="row5">
             <button type="button">.</button>
             <button type="button" class="num">0</button>
-            <button type="button">DEL</button>
+            <button type="button" class="del">DEL</button>
             <button type="button" class="equals">=</button>
         </div>
-    </main>
+    </div>
     <!-- scripts -->
     <script src="./js/main.js"></script>
 </body>
+
 </html>
