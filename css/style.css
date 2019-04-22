@@ -47,6 +47,23 @@ button {
 
 .display p {
     margin-right: 2vw;
+    margin-left: 2vw;
+    overflow-y: hidden; 
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* Display scrollbar on overflow */
+::-webkit-scrollbar {
+    height: 2.5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #202020;
 }
 
 .row1 button,
@@ -134,4 +151,9 @@ button:focus {
 
 .row5 {
     grid-area: 6 / 1 / span 1 / span 4;
+}
+
+.temp-equation {
+    display: inline-block;
+    font-size: 0.7em;
 }
