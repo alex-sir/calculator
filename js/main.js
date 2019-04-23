@@ -190,6 +190,7 @@ function clear(clear) {
     });
 }
 
+// Modularize, split into function
 function del(deleteChar) {
     deleteChar.addEventListener("click", () => {
         if (tempEquation.textContent === "") {
@@ -200,8 +201,8 @@ function del(deleteChar) {
                 number = number.toString().slice(0, -1);
                 return;
             } else if (/(\+|\-|\*|\/)/.test(displayP.textContent[displayP.textContent.length - 1])) {
+                number = numsList[numsList.length - 1];
                 displayP.textContent = displayP.textContent.slice(0, -1);
-                number = +displayP.textContent[displayP.textContent.length - 1];
                 operatorsList.pop();
                 numsList.pop();
                 return;
@@ -217,8 +218,8 @@ function del(deleteChar) {
                 number = number.toString().slice(0, -1);
                 return;
             } else if (/(\+|\-|\*|\/)/.test(tempEquation.textContent[tempEquation.textContent.length - 1])) {
+                number = numsList[numsList.length - 1];
                 tempEquation.textContent = tempEquation.textContent.slice(0, -1);
-                number = +tempEquation.textContent[tempEquation.textContent.length - 1];
                 operatorsList.pop();
                 numsList.pop();
                 return;
