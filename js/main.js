@@ -109,7 +109,8 @@ function execute(equals) {
         if (displayP.textContent === "" ||
             /(\+|\-|\*|\/)/.test(displayP.textContent[displayP.textContent.length - 1]) ||
             /(\+|\-|\*|\/)/.test(tempEquation.textContent[tempEquation.textContent.length - 1]) ||
-            displayP.textContent === number.toString() ||
+            (displayP.textContent === number.toString() &&
+                tempEquation.textContent === "") ||
             tempEquation.textContent === number.toString()) {
             return;
         }

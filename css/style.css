@@ -129,14 +129,11 @@ button:focus {
     background-color: rgba(95, 195, 228, 0.4);
 }
 
-.num {
-    background-color: rgba(229, 93, 135, 0.4);
-}
-
+.num,
 .clear,
 .del,
 .decimal {
-    background-color: rgba(207, 35, 89, 0.5);
+    background-color: rgba(229, 93, 135, 0.4);
 }
 
 .equals {
