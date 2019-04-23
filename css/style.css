@@ -132,6 +132,7 @@ button:focus {
 .num {
     background-color: rgba(229, 93, 135, 0.4);
 }
+
 .clear,
 .del,
 .decimal {
