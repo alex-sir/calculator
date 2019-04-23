@@ -50,8 +50,14 @@ function chooseOperators(operators) {
     operators.forEach(operator => {
         operator.addEventListener("click", function () {
             if (tempEquation.textContent === "") {
+                if (/(\+|\-|\*|\/)/.test(operatorsList[operatorsList.length - 1])) {
+                    return;
+                }
                 displayP.textContent += operator.textContent;
             } else {
+                if (/(\*|\/)/.test(operatorsList[operatorsList.length - 1])) {
+                    return;
+                }
                 tempEquation.textContent += operator.textContent;
             }
             numsList.push(+number);
@@ -96,7 +102,8 @@ function divPrecedence(total, operation, numsList, operatorsList) {
 function execute(equals) {
     equals.addEventListener("click", function () {
         tempEquation.classList.add("temp-equation");
-        if (displayP.textContent === "") {
+        if (displayP.textContent === "" ||
+            /(\+|\-|\*|\/)/.test(displayP.textContent[displayP.textContent.length - 1])) {
             return;
         }
         numsList.push(+number);
@@ -177,24 +184,27 @@ function clear(clear) {
 function del(deleteChar) {
     deleteChar.addEventListener("click", () => {
         if (tempEquation.textContent === "") {
-            if (!isNaN(+displayP.textContent[displayP.textContent.length - 1])) {
+            if (displayP.textContent[displayP.textContent.length - 1] === ".") {
+                number = number.toString().slice(0, -1);
+            } else if (!isNaN(+displayP.textContent[displayP.textContent.length - 1])) {
                 displayP.textContent = displayP.textContent.slice(0, -1);
-                // fucked?
                 number = number.toString().slice(0, -1);
                 return;
             } else if (/(\+|\-|\*|\/)/.test(displayP.textContent[displayP.textContent.length - 1])) {
                 displayP.textContent = displayP.textContent.slice(0, -1);
-                //THIS THING
                 number = +displayP.textContent[displayP.textContent.length - 1];
                 operatorsList.pop();
                 numsList.pop();
-                // check if theres a number before the operator (maybe delete THING above?)
-
                 return;
             }
             displayP.textContent = displayP.textContent.slice(0, -1);
         } else {
-            if (!isNaN(+displayP.textContent[displayP.textContent.length - 1])) {
+            if (tempEquation.textContent.length === 1 &&
+                tempEquation.textContent[tempEquation.textContent.length - 1] !== ".") {
+                return;
+            } else if (tempEquation.textContent[tempEquation.textContent.length - 1] === ".") {
+                number = number.toString().slice(0, -1);
+            } else if (!isNaN(+tempEquation.textContent[tempEquation.textContent.length - 1])) {
                 tempEquation.textContent = tempEquation.textContent.slice(0, -1);
                 number = number.toString().slice(0, -1);
                 return;
@@ -211,8 +221,10 @@ function del(deleteChar) {
 
 function decimalNum(decimal) {
     decimal.addEventListener("click", () => {
-        if (number.includes(".")) {
-            return;
+        if (number.toString() !== "") {
+            if (number.toString().includes(".")) {
+                return;
+            }
         }
         if (tempEquation.textContent === "") {
             displayP.textContent += ".";
