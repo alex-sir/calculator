@@ -38,8 +38,10 @@ function chooseNums(nums) {
         num.addEventListener("click", () => {
             if (tempEquation.textContent === "") {
                 displayP.textContent += num.textContent;
+                if (scrollingCheck(displayP)) scrollingEnd(displayP);
             } else {
                 tempEquation.textContent += num.textContent;
+                if (scrollingCheck(tempEquation)) scrollingEnd(tempEquation);
             }
             number += num.textContent;
         });
@@ -54,11 +56,13 @@ function chooseOperators(operators) {
                     return;
                 }
                 displayP.textContent += operator.textContent;
+                if (scrollingCheck(displayP)) scrollingEnd(displayP);
             } else {
                 if (/^(\+|\-|\*|\/){1}$/.test(tempEquation.textContent[tempEquation.textContent.length - 1])) {
                     return;
                 }
                 tempEquation.textContent += operator.textContent;
+                if (scrollingCheck(tempEquation)) scrollingEnd(tempEquation);
             }
             numsList.push(+number);
             number = "";
@@ -162,6 +166,7 @@ function execute(equals) {
             total = operation;
             numsList[i + 1] = total;
         }
+        if (scrollingCheck(tempEquation)) scrollingStart(tempEquation);
         total = Math.round(total * 100) / 100;
         tempEquation.textContent = total;
         displayP.textContent = total;
@@ -228,11 +233,28 @@ function decimalNum(decimal) {
         }
         if (tempEquation.textContent === "") {
             displayP.textContent += ".";
+            if (scrollingCheck(displayP)) scrollingEnd(displayP);
         } else {
             tempEquation.textContent += ".";
+            if (scrollingCheck(tempEquation)) scrollingEnd(tempEquation);
         }
         number += ".";
     });
+}
+
+function scrollingEnd(numBox) {
+    numBox.scrollLeft = numBox.scrollWidth;
+}
+
+function scrollingStart(numBox) {
+    numBox.scrollLeft = numBox.scrollWidth - numBox.scrollWidth;
+}
+
+function scrollingCheck(numBox) {
+    if (numBox.scrollWidth > numBox.clientWidth) {
+        return true;
+    }
+    return false;
 }
 
 function main() {

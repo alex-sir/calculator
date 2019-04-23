@@ -18,7 +18,7 @@ body {
     position: relative;
     margin: auto;
     width: 100vw;
-    height: 100vh;
+    height: 96.5vh;
 }
 
 button {
@@ -114,7 +114,7 @@ button {
     border-right: 3px solid #202020;
 }
 
-/* Buttons and rows */
+/* Buttons */
 button {
     font-size: 4vw;
     background-color: transparent;
@@ -122,6 +122,24 @@ button {
 
 button:focus {
     outline: none;
+}
+
+/* Button colors */
+.operator {
+    background-color: rgba(95, 195, 228, 0.4);
+}
+
+.num,
+.clear,
+.del,
+.decimal {
+    background-color: rgba(229, 93, 135, 0.4);
+}
+
+.equals {
+    background: rgba(95, 195, 228, 0.4);
+    background: -webkit-linear-gradient(to right, rgba(229, 93, 135, 0.4), rgba(95, 195, 228, 0.4));
+    background: linear-gradient(to right, rgba(229, 93, 135, 0.4), rgba(95, 195, 228, 0.4));
 }
 
 /* Calculator rows */
@@ -158,4 +176,34 @@ button:focus {
 .temp-equation {
     display: inline-block;
     font-size: 0.7em;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    font-size: 14px;
+    margin-right: 10px;
+    font-style: italic;
+}
+
+footer img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+    transition: opacity 0.1s ease-in-out;
+}
+
+footer a {
+    width: 20px;
+    height: 20px;
+}
+
+footer img:hover {
+    opacity: 1;
 }
