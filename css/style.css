@@ -129,17 +129,17 @@ button:focus {
     background-color: rgba(95, 195, 228, 0.4);
 }
 
-.num,
+.num {
+    background-color: rgba(229, 93, 135, 0.4);
+}
 .clear,
 .del,
 .decimal {
-    background-color: rgba(229, 93, 135, 0.4);
+    background-color: rgba(207, 35, 89, 0.5);
 }
 
 .equals {
-    background: rgba(95, 195, 228, 0.4);
-    background: -webkit-linear-gradient(to right, rgba(229, 93, 135, 0.4), rgba(95, 195, 228, 0.4));
-    background: linear-gradient(to right, rgba(229, 93, 135, 0.4), rgba(95, 195, 228, 0.4));
+    background-color: rgba(35, 207, 228, 0.6);
 }
 
 /* Calculator rows */

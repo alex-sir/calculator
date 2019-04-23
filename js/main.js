@@ -107,7 +107,10 @@ function execute(equals) {
     equals.addEventListener("click", function () {
         tempEquation.classList.add("temp-equation");
         if (displayP.textContent === "" ||
-            /(\+|\-|\*|\/)/.test(displayP.textContent[displayP.textContent.length - 1])) {
+            /(\+|\-|\*|\/)/.test(displayP.textContent[displayP.textContent.length - 1]) ||
+            /(\+|\-|\*|\/)/.test(tempEquation.textContent[tempEquation.textContent.length - 1]) ||
+            displayP.textContent === number.toString() ||
+            tempEquation.textContent === number.toString()) {
             return;
         }
         numsList.push(+number);
