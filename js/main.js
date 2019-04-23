@@ -50,12 +50,12 @@ function chooseOperators(operators) {
     operators.forEach(operator => {
         operator.addEventListener("click", function () {
             if (tempEquation.textContent === "") {
-                if (/(\+|\-|\*|\/)/.test(operatorsList[operatorsList.length - 1])) {
+                if (/^(\+|\-|\*|\/){1}$/.test(displayP.textContent[displayP.textContent.length - 1])) {
                     return;
                 }
                 displayP.textContent += operator.textContent;
             } else {
-                if (/(\*|\/)/.test(operatorsList[operatorsList.length - 1])) {
+                if (/^(\+|\-|\*|\/){1}$/.test(tempEquation.textContent[tempEquation.textContent.length - 1])) {
                     return;
                 }
                 tempEquation.textContent += operator.textContent;
@@ -199,8 +199,7 @@ function del(deleteChar) {
             }
             displayP.textContent = displayP.textContent.slice(0, -1);
         } else {
-            if (tempEquation.textContent.length === 1 &&
-                tempEquation.textContent[tempEquation.textContent.length - 1] !== ".") {
+            if (tempEquation.textContent.length === 1) {
                 return;
             } else if (tempEquation.textContent[tempEquation.textContent.length - 1] === ".") {
                 number = number.toString().slice(0, -1);
@@ -215,6 +214,7 @@ function del(deleteChar) {
                 numsList.pop();
                 return;
             }
+            tempEquation.textContent = tempEquation.textContent.slice(0, -1);
         }
     });
 }
