@@ -166,6 +166,7 @@ function execute(equals) {
             total = operation;
             numsList[i + 1] = total;
         }
+        if (scrollingCheck(displayP)) scrollingStart(displayP);
         if (scrollingCheck(tempEquation)) scrollingStart(tempEquation);
         total = Math.round(total * 100) / 100;
         tempEquation.textContent = total;
