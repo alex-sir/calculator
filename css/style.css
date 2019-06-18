@@ -49,6 +49,7 @@ button {
     justify-content: flex-end;
     align-items: center;
     font-size: 3.5em;
+    min-height: 80px;
 }
 
 .display p {
@@ -179,4 +180,76 @@ button:focus {
 .temp-equation {
     display: inline-block;
     font-size: 0.7em;
+}
+
+/* FIXME: On landscape mobile, output section is broken */
+@media only screen and (max-width: 1110px) {
+    .calc {
+        width: 60vw;
+    }
+
+    .row1 button,
+    .row2 button,
+    .row3 button,
+    .row4 button,
+    .row5 button {
+        width: 20vw;
+    }
+
+}
+
+@media only screen and (max-width: 950px) {
+    .calc {
+        width: 70vw;
+    }
+
+    button {
+        font-size: 5vw;
+    }
+}
+
+@media only screen and (max-width: 740px) {
+    button {
+        font-size: 6vw;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .calc {
+        width: 80vw;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    button {
+        font-size: 7vw;
+    }
+
+    .calc {
+        width: 90vw;
+    }
+
+    .row1 button,
+    .row2 button,
+    .row3 button,
+    .row4 button,
+    .row5 button {
+        width: 25vw;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    button {
+        font-size: 8vw;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    button {
+        font-size: 9vw;
+    }
+}
+
+@media only screen and (max-height: 360px) {
+    
 }
